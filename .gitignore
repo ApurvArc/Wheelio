@@ -1,0 +1,46 @@
+# =========================
+# Node.js / Server
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
+
+# Coverage
+coverage/
+.nyc_output/
+
+# =========================
+# Client (React / Vite / Next.js)
+# =========================
+client/node_modules/
+client/dist/
+client/build/
+
+# Client env (public values only)
+client/.env
+client/.env.local
+client/.env.*.local
+
+# Client test coverage
+client/coverage/
+
+# =========================
+# OS / Editor files
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
