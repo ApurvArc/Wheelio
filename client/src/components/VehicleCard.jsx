@@ -2,14 +2,14 @@ import React from 'react'
 import { useNavigate } from "react-router-dom"
 import { assets } from '../assets/assets'
 
-const CarCard = ({ car }) => {
+const VehicleCard = ({ car }) => {
   const currency = import.meta.env.VITE_CURRENCY || "$"
   const navigate = useNavigate()
 
   return (
     <div
       onClick={() => {
-        navigate(`/cars-details/${car._id}`)
+        navigate(`/vehicles-details/${car._id}`)
         window.scrollTo(0, 0)
       }}
       className='group rounded-xl overflow-hidden shadow-lg hover:-translate-y-1 transition-all duration-500 cursor-pointer'
@@ -66,4 +66,4 @@ const CarCard = ({ car }) => {
   )
 }
 
-export default CarCard
+export default VehicleCard

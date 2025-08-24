@@ -9,7 +9,7 @@ const Testimonial = () => {
       address: "Barcelona, Spain",
       image: assets.testimonial_image_1,
       rating: 5,
-      testimonial: "I've rented cars from various companies, but the experience with Carrental was exceptional."
+      testimonial: "I've rented vehicles from various companies, but the experience with Carrental was exceptional."
     },
     {
       name: "Liam Johnson", 
