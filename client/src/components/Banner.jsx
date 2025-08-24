@@ -7,7 +7,7 @@ const Banner = () => {
         justify-between px-8 md:pl-14 pt-10 bg-gradient-to-r from-[#0558FE] to-[#A9CFFF] max-w-6xl mx-3 md:mx-auto rounded-2xl overflow-hidden'>
             
             <div className='text-white'>
-                <h2 className='text-3xl font-medium'>Do You Own a Luxury Car?</h2>
+                <h2 className='text-3xl font-medium'>Do You Own a Luxury Vehicle?</h2>
                 <p className='mt-2'>Monetize your vehicle effortlessly by listing it on Wheelio.</p>
                 <p className='max-w-130'>We take care of insurance, driver verification and secure payments - so you can earn passive income, stress-free.</p>
 
@@ -17,7 +17,7 @@ const Banner = () => {
                 </button>
             </div>
 
-            <img src={assets.banner_car_image} alt='car' className='max-h-45 mt-10'/>
+            <img src={assets.banner_car_image} alt='vehicle' className='max-h-45 mt-10'/>
         </div>
     )
 }

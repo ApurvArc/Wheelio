@@ -16,14 +16,14 @@ const Testimonial = () => {
       address: "New York, USA", 
       image: assets.testimonial_image_2, 
       rating: 4, 
-      testimonial: "The car was in excellent condition and the service was top-notch. Highly recommend!" 
+      testimonial: "The vehicle was in excellent condition and the service was top-notch. Highly recommend!" 
     },
     { 
       name: "Sophia Lee", 
       address: "Seoul, South Korea", 
       image: assets.testimonial_image_1, 
       rating: 5, 
-      testimonial: "The service was excellent and the car was in pristine condition. I couldn't have asked for a better experience!" 
+      testimonial: "The service was excellent and the vehicle was in pristine condition. I couldn't have asked for a better experience!" 
     }
   ]
 

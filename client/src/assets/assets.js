@@ -183,7 +183,7 @@ export const dummyVehicleData = [
 export const dummyMyBookingsData = [
     {
         "_id": "68482bcc98eb9722b7751f70",
-        "car": dummyVehicleData[0],
+        "vehicle": dummyVehicleData[0],
         "user": "6847f7cab3d8daecdb517095",
         "owner": "6847f7cab3d8daecdb517095",
         "pickupDate": "2025-06-13T00:00:00.000Z",
@@ -194,7 +194,7 @@ export const dummyMyBookingsData = [
     },
     {
         "_id": "68482bb598eb9722b7751f60",
-        "car": dummyVehicleData[1],
+        "vehicle": dummyVehicleData[1],
         "user": "6847f7cab3d8daecdb517095",
         "owner": "67fe3467ed8a8fe17d0ba6e2",
         "pickupDate": "2025-06-12T00:00:00.000Z",
@@ -205,7 +205,7 @@ export const dummyMyBookingsData = [
     },
     {
         "_id": "684800fa0fb481c5cfd92e56",
-        "car": dummyVehicleData[2],
+        "vehicle": dummyVehicleData[2],
         "user": "6847f7cab3d8daecdb517095",
         "owner": "67fe3467ed8a8fe17d0ba6e2",
         "pickupDate": "2025-06-11T00:00:00.000Z",
@@ -216,7 +216,7 @@ export const dummyMyBookingsData = [
     },
     {
         "_id": "6847fe790fb481c5cfd92d94",
-        "car": dummyVehicleData[3],
+        "vehicle": dummyVehicleData[3],
         "user": "6847f7cab3d8daecdb517095",
         "owner": "6847f7cab3d8daecdb517095",
         "pickupDate": "2025-06-11T00:00:00.000Z",

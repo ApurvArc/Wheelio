@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Title from '../components/Title'
-import { assets } from '../assets/assets'
+import { assets, dummyVehicleData } from '../assets/assets'
+import VehicleCard from '../components/VehicleCard'
 
 const Vehicles = () => {
 
@@ -16,6 +17,18 @@ const Vehicles = () => {
 
           <input onClick={(e) => setInput(e.target.value)} value={input} type='text' placeholder='Search by make, model, or features' className='w-full h-full outline-none text-gray-500' />
           <img src={assets.filter_icon} alt="" className='w-4.5 h-4.5 ml-2'/>
+        </div>
+      </div>
+
+      <div className='px-6 md:px-16 lg:px-24 xl:px-32 mt-10'>
+        <p className='text-gray-500 xl:px-20 max-w-7xl mx-auto'>Showing {dummyVehicleData.length} Vehicles</p>
+
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-4 xl:px-20 max-w-7xl mx-auto'>
+          {dummyVehicleData.map((vehicle, index) => (
+            <div key={index}>
+              <VehicleCard vehicle={vehicle} />
+            </div>
+          ))}
         </div>
       </div>
     </div>

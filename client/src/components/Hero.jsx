@@ -1,14 +1,8 @@
-import React from 'react';
-import {assets} from "../assets/assets";
-import {useState} from 'react';
+import React, { useState } from 'react';
+import { assets, cityList } from "../assets/assets";
 
 const Hero = () => {
     const [pickupLocation, setPickupLocation] = useState('');
-
-    const cityList = [
-        'New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix',
-        'Philadelphia', 'San Antonio', 'San Diego', 'Dallas', 'San Jose'
-    ];
 
     return (
         <div className='h-screen flex flex-col items-center justify-center gap-14 bg-light text-center'>
@@ -29,13 +23,16 @@ const Hero = () => {
                             value={pickupLocation}
                             onChange={(e) => setPickupLocation(e.target.value)}
                             className="py-2 px-4 rounded border border-borderColor text-sm text-gray-500"
-                            required>
+                            required
+                        >
                             <option value="">Pickup Location</option>
                             {cityList.map((city) => (
                                 <option key={city} value={city}>{city}</option>
                             ))}
                         </select>
-                        <p className='px-1 text-sm text-gray-500'>{pickupLocation ? pickupLocation : 'Please select location'}</p>
+                        <p className='px-1 text-sm text-gray-500'>
+                            {pickupLocation ? pickupLocation : 'Please select location'}
+                        </p>
                     </div>
 
                     <div className="flex flex-col items-start gap-2">
@@ -62,18 +59,18 @@ const Hero = () => {
                 </div>
 
                 <button
-                        type="submit"
-                        className="flex items-center justify-center gap-1 px-9 py-3
-                        max-sm:mt-4 bg-primary hover:bg-primary-dull text-white rounded-full
-                        cursor-pointer"
-                    >
-                        <img src={assets.search_icon} alt="search" className="brightness-300" />
-                        Search
-                    </button>
+                    type="submit"
+                    className="flex items-center justify-center gap-1 px-9 py-3
+                    max-sm:mt-4 bg-primary hover:bg-primary-dull text-white rounded-full
+                    cursor-pointer"
+                >
+                    <img src={assets.search_icon} alt="search" className="brightness-300" />
+                    Search
+                </button>
 
             </form>
 
-            <img src={assets.main_car} alt="car" className="max-h-74" />
+            <img src={assets.main_car} alt="vehicle" className="max-h-74" />
         </div>
     );
 };
