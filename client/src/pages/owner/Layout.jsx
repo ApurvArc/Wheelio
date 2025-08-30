@@ -11,7 +11,6 @@ const Layout = () => {
         <Sidebar />
         <Outlet />
       </div>
-      
     </div>
   )
 }
