@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { assets } from '../../assets/assets'
-import Title from '../../components/Title'
+import Title from '../../components/owner/Title'
 
 const AddVehicle = () => {
   const currency = import.meta.env.VITE_CURRENCY
@@ -31,8 +31,7 @@ const AddVehicle = () => {
     <div className="px-4 py-10 md:px-10 flex-1">
       <Title
         title="Add New Vehicle"
-        subtitle="Fill in details to list a new vehicle for booking, including pricing, availability, and vehicle specifications."
-        align="left"
+        subTitle="Fill in details to list a new vehicle for booking, including pricing, availability, and vehicle specifications."
       />
 
       <form

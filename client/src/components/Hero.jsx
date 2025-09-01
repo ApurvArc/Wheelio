@@ -17,13 +17,10 @@ const Hero = () => {
                 <div className='flex flex-col md:flex-row items-start md:items-center gap-10 min-md:ml-8'>
 
                     <div className='flex flex-col items-start gap-2'>
-                        <label htmlFor="pickup-location"></label>
                         <select
                             id="pickup-location"
                             value={pickupLocation}
                             onChange={(e) => setPickupLocation(e.target.value)}
-                            className="py-2 px-4 rounded border border-borderColor text-sm text-gray-500"
-                            required
                         >
                             <option value="">Pickup Location</option>
                             {cityList.map((city) => (
