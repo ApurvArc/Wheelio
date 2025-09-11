@@ -226,7 +226,6 @@ export const dummyMyBookingsData = [
         "createdAt": "2025-06-10T09:44:25.410Z",
     }
 ]
-
 export const dummyDashboardData = {
     "totalVehicles": 4,
     "totalBookings": 2,

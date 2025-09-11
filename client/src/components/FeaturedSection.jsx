@@ -3,9 +3,13 @@ import Title from './Title'
 import { dummyVehicleData, assets } from '../assets/assets'
 import VehicleCard from './VehicleCard'
 import { useNavigate } from 'react-router-dom'
+import { useAppContext } from '../context/AppContext'
 
 const FeaturedSection = () => {
+
   const navigate = useNavigate();
+
+  const {vehicles} = useAppContext();
 
   return (
     <div className='flex flex-col items-center py-24 px-6 md:px-16
@@ -21,7 +25,7 @@ const FeaturedSection = () => {
 
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8'>
             {
-                dummyVehicleData.slice(0,6).map((vehicle) => (
+                vehicles.slice(0,6).map((vehicle) => (
                     <div key={vehicle._id}>
                         <VehicleCard vehicle={vehicle}/>
                     </div>
