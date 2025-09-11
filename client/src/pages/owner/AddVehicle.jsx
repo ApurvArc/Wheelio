@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { assets } from '../../assets/assets'
+import { assets, indianCities } from '../../assets/assets'
 import Title from '../../components/owner/Title'
 import { useAppContext } from '../../context/AppContext'
 import toast from 'react-hot-toast'
@@ -227,12 +227,9 @@ const AddVehicle = () => {
             className="px-3 py-2 mt-1 border border-borderColor rounded-md outline-none"
           >
             <option value="">Select a Location</option>
-            <option value="City Center">City Center</option>
-            <option value="Airport">Airport</option>
-            <option value="Train Station">Train Station</option>
-            <option value="Bus Terminal">Bus Terminal</option>
-            <option value="Suburbs">Suburbs</option>
-            <option value="Downtown">Downtown</option>
+            {indianCities.map((city) => (
+                <option key={city} value={city}>{city}</option>
+            ))}
           </select>
         </div>
 

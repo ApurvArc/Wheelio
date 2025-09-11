@@ -41,7 +41,23 @@ import car_image2 from "./car_image2.png"
 import car_image3 from "./car_image3.png"
 import car_image4 from "./car_image4.png"
 
-export const cityList = ['New York', 'Los Angeles', 'Houston', 'Chicago']
+export const indianCities = [
+    "Mumbai",
+    "Delhi",
+    "Bangalore",
+    "Pune",
+    "Hyderabad",
+    "Chennai",
+    "Goa",
+    "Jaipur",
+    "Kolkata",
+    "Ahmedabad",
+    "Lucknow",
+    "Cochin",
+    "Chandigarh",
+    "Indore",
+    "Ranchi"
+];
 
 export const assets = {
     logo,
@@ -121,7 +137,6 @@ export const dummyVehicleData = [
         "seating_capacity": 4,
         "fuel_type": "Hybrid",
         "transmission": "Semi-Automatic",
-        "pricePerDay": 3000,
         "location": "New York",
         "description": "The BMW X5 is a mid-size luxury SUV produced by BMW. The X5 made its debut in 1999 as the first SUV ever produced by BMW.",
         "isAvailable": true,

@@ -19,6 +19,7 @@ export const AppProvider = ({children})=>{
     const [returnDate, setReturnDate] = useState('')
 
     const [vehicles, setVehicles] = useState([])
+    const [cityList, setCityList] = useState([])
 
     // Function to check if user is logged in
     const fetchUser = async () => {
@@ -39,7 +40,13 @@ export const AppProvider = ({children})=>{
     const fetchVehicles = async () => {
         try {
             const {data} = await axios.get('/api/user/vehicles')
-            data.success ? setVehicles(data.vehicles) : toast.error(data.message)
+            if (data.success) {
+                setVehicles(data.vehicles);
+                const locations = [...new Set(data.vehicles.map(vehicle => vehicle.location))].sort();
+                setCityList(locations);
+            } else {
+                toast.error(data.message)
+            }
         } catch (error) {
             toast.error(error.message)
         }
@@ -73,7 +80,8 @@ export const AppProvider = ({children})=>{
     const value = {
         navigate, currency, axios, user, setUser, 
         token, setToken, isOwner, setIsOwner, fetchUser, showLogin, setShowLogin,
-        logout, vehicles, setVehicles, pickupDate, setPickupDate, returnDate, setReturnDate, fetchVehicles
+        logout, vehicles, setVehicles, pickupDate, setPickupDate, returnDate, setReturnDate, fetchVehicles,
+        cityList
     }
 
     return (

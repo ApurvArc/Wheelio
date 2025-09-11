@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { assets, cityList } from "../assets/assets";
+import { assets } from "../assets/assets";
 import { useAppContext } from '../context/AppContext';
 import { motion } from "motion/react";
 
@@ -7,7 +7,7 @@ const Hero = () => {
     const [pickupLocation, setPickupLocation] = useState('');
 
     const {pickupDate, setPickupDate, returnDate, setReturnDate,
-        navigate
+        navigate, cityList
     } = useAppContext();
 
     const handleSearch = (e) => {
