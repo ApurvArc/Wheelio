@@ -23,9 +23,9 @@ const ManageVehicles = () => {
     }
   }
 
-  const toogleAvailbality= async (vehicleId) => {
+  const toggleAvailbality= async (vehicleId) => {
     try {
-      const {data} = await axios.post('/api/owner/toogle-vehicle', {vehicleId})
+      const {data} = await axios.post('/api/owner/toggle-vehicle', {vehicleId})
       if(data.success){
         toast.success(data.message)
         fetchOwnerVehicles()
@@ -100,7 +100,7 @@ const ManageVehicles = () => {
                   </span>
                 </td>
                 <td className='flex items-center p-3'>
-                  <img onClick={()=> toogleAvailbality(vehicle._id)} src={vehicle.isAvailable ? assets.eye_close_icon : assets.eye_icon} alt="" className='cursor-pointer' />
+                  <img onClick={()=> toggleAvailbality(vehicle._id)} src={vehicle.isAvailable ? assets.eye_close_icon : assets.eye_icon} alt="" className='cursor-pointer' />
                   <img onClick={()=> deleteVehicle(vehicle._id)} src={assets.delete_icon} alt="" className='cursor-pointer' />
                 </td>
               </tr>
