@@ -8,6 +8,6 @@ bookingRouter.post('/check-availability', checkAvailabilityOfVehicle)
 +bookingRouter.post('/create', protect, createBooking)
 +bookingRouter.get('/user', protect, getUserBookings)
 +bookingRouter.get('/owner', protect, getOwnerBookings)
-+bookingRouter.post('change-status', protect, changeBookingStatus)
++bookingRouter.post('/change-status', protect, changeBookingStatus)
 
 export default bookingRouter;

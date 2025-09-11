@@ -4,6 +4,7 @@ import { assets, dummyVehicleData } from '../assets/assets'
 import Loader from '../components/Loader'
 import { useAppContext } from '../context/AppContext'
 import toast from 'react-hot-toast'
+import { motion } from 'motion/react'
 
 const VehicleDetails = () => {
 
@@ -47,13 +48,26 @@ const VehicleDetails = () => {
       <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12'>
         
         {/* Left: Car Image & Details */}
-        <div className='lg:col-span-2'>
-          <img
+        <motion.div 
+        initial={{opacity: 0, y: 30}}
+        whileInView={{opacity: 1, y: 0}}
+        transition={{duration: 0.6}}
+
+        className='lg:col-span-2'>
+          <motion.img
+            initial={{ scale: 0.98, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
             src={vehicle.image}
             alt=""
             className='w-full h-auto md:max-h-100 object-cover rounded-xl mb-6 shadow-md'
           />
-          <div className='space-y-6'>
+          <motion.div
+           initial={{opacity: 0 }}
+           animate={{opacity: 1 }}
+           transition={{duration: 0.5, delay: 0.2}}
+
+           className='space-y-6'>
             <div>
               <h1>{vehicle.brand} {vehicle.model}</h1>
               <p className='text-gray-500 text-lg'>{vehicle.category} • {vehicle.year}</p>
@@ -69,13 +83,16 @@ const VehicleDetails = () => {
                 { icon: assets.car_icon, text: vehicle.transmission },
                 { icon: assets.location_icon, text: vehicle.location },
               ].map((item, idx) => (
-                <div
+                <motion.div
+                  initial={{opacity: 0, y: 10}}
+                  animate={{opacity: 1, y: 0}}
+                  transition={{duration: 0.4 }}
                   key={idx}
                   className='flex flex-col items-center bg-light p-4 rounded-lg'
                 >
                   <img src={item.icon} alt="" className='h-5 mb-2'/>
                   {item.text}
-                </div>
+                </motion.div>
               ))}
             </div>
 
@@ -97,11 +114,15 @@ const VehicleDetails = () => {
                 ))}
               </ul>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Right: Booking Form */}
-        <form
+        <motion.form
+          initial={{opacity: 0, y: 30}}
+          whileInView={{opacity: 1, y: 0}}
+          transition={{duration: 0.6, delay: 0.2}}
+          
           onSubmit={handleSubmit}
           className='shadow-lg h-max sticky top-18 rounded-xl p-6 space-y-6 text-gray-500'
         >
@@ -142,7 +163,7 @@ const VehicleDetails = () => {
           </button>
 
           <p className='text-center text-sm'>No credit card required to reserve</p>
-        </form>
+        </motion.form>
       </div>
     </div>
   ) : <Loader/>
