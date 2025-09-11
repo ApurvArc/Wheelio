@@ -6,7 +6,7 @@ const checkAvailability = async (vehicle, pickupDate, returnDate) => {
     const booking = await Booking.find({
         vehicle,
         pickupDate: { $lte: returnDate },
-        returnDate: { $lte: pickupDate },
+        returnDate: { $gte: pickupDate },
     })
     return booking.length === 0;
 }
@@ -52,8 +52,11 @@ export const createBooking = async (req, res) => {
         // Calculate price based on pickupDate and returnDate
         const picked = new Date(pickupDate);
         const returned = new Date(returnDate);
-        const noOfDays = Math.ceil((returned - picked) / (1000 * 60 * 60 * 24));
-        const price = vehicleData.pricePerDay * noOfDays; // Corrected: use vehicleData
+        let noOfDays = Math.ceil((returned - picked) / (1000 * 60 * 60 * 24));
+        if (noOfDays === 0) {
+            noOfDays = 1;
+        }
+        const price = vehicleData.pricePerDay * noOfDays;
 
         await Booking.create({ vehicle : vehicle, owner: vehicleData.owner, user: _id, pickupDate, returnDate, price })
 
