@@ -112,7 +112,7 @@ export const deleteVehicle = async (req,res)=> {
 }
 
 // API to get Dashboard Data
-export const getDashBoardData = async (req,res) =>{
+export const getDashboardData = async (req,res) =>{
     try {
         const {_id, role } = req.user;
 
