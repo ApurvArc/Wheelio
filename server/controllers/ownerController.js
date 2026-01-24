@@ -63,27 +63,29 @@ export const getOwnerVehicles = async (req,res)=> {
     }
 }
 
+
 // API to toggle Vehicle Availability
-export const toggleVehicleAvailabilty = async (req,res)=> {
+export const toggleVehicleAvailability = async (req,res)=> {
     try {
         const {_id} = req.user
         const {vehicleId} = req.body
         const vehicle = await Vehicle.findById(vehicleId)
 
-        // Checking is car belongs to the user
+        // Checking if car belongs to the user
         if(vehicle.owner.toString() != _id.toString()){
-            return res.json({ success: false, message: "Unauthorized"});
+            return res.json({ success: false, message: "Unauthorized"}); // Standardized spelling
         }
 
         vehicle.isAvailable = ! vehicle.isAvailable;
         await vehicle.save()
 
-        res.json({success: true, message: "Availablility Toggled"})
+        res.json({success: true, message: "Availability Toggled"}) // Fixed spelling
     } catch (error) {
         console.log(error.message);
         res.json({success:false, message: error.message})
     }
 }
+
 
 // API to delete a vehicle
 export const deleteVehicle = async (req,res)=> {

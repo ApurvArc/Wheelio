@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { assets, dummyVehicleData } from '../assets/assets'
+import { assets } from '../assets/assets'
 import Loader from '../components/Loader'
 import { useAppContext } from '../context/AppContext'
 import toast from 'react-hot-toast'
@@ -36,7 +36,6 @@ const VehicleDetails = () => {
 
   return vehicle ? (
     <div className='px-6 md:px-16 lg:px-24 xl:px-32 mt-16'>
-      {/* Back button */}
       <button
         onClick={() => navigate("/vehicles")}
         className='flex items-center gap-2 mb-6 text-gray-500 cursor-pointer'
@@ -47,7 +46,6 @@ const VehicleDetails = () => {
 
       <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12'>
         
-        {/* Left: Car Image & Details */}
         <motion.div 
         initial={{opacity: 0, y: 30}}
         whileInView={{opacity: 1, y: 0}}
@@ -73,9 +71,8 @@ const VehicleDetails = () => {
               <p className='text-gray-500 text-lg'>{vehicle.category} • {vehicle.year}</p>
             </div>
 
-            <hr className='border-border-color my-6'/>
+            <hr className='border-borderColor my-6'/>
 
-            {/* Vehicle info icons */}
             <div className='grid grid-cols-2 sm:grid-cols-4 gap-4'>
               {[
                 { icon: assets.fuel_icon, text: `${vehicle.seating_capacity} Seats` },
@@ -96,13 +93,11 @@ const VehicleDetails = () => {
               ))}
             </div>
 
-            {/* Description */}
             <div>
               <h1 className='text-xl font-medium mb-3'>Description</h1>
               <p className='text-gray-500'>{vehicle.description}</p>
             </div>
 
-            {/* Features */}
             <div>
               <h1 className='text-xl font-medium mb-3'>Features</h1>
               <ul className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
@@ -117,7 +112,6 @@ const VehicleDetails = () => {
           </motion.div>
         </motion.div>
 
-        {/* Right: Booking Form */}
         <motion.form
           initial={{opacity: 0, y: 30}}
           whileInView={{opacity: 1, y: 0}}

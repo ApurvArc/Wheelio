@@ -1,4 +1,3 @@
-// client/src/pages/Vehicles.jsx
 import React, { useState, useEffect } from 'react'
 import Title from '../components/Title'
 import { assets } from '../assets/assets'
@@ -19,7 +18,6 @@ const Vehicles = () => {
   const [filteredVehicles, setFilteredVehicles] = useState([])
   const [baseVehicles, setBaseVehicles] = useState([]) 
 
-  // Fetches initial availability based on URL parameters
   const searchVehicleAvailability = async () => {
     try {
       const { data } = await axios.post('/api/bookings/check-availability', { 
@@ -39,7 +37,6 @@ const Vehicles = () => {
     }
   }
 
-  // Refined Multi-Field Filter Logic
   const applyFilter = () => {
     if (input.trim() === '') {
       setFilteredVehicles(baseVehicles)
@@ -53,7 +50,7 @@ const Vehicles = () => {
         vehicle.brand.toLowerCase().includes(query) ||
         vehicle.model.toLowerCase().includes(query) ||
         vehicle.category.toLowerCase().includes(query) ||
-        vehicle.location.toLowerCase().includes(query) || // Search by Location
+        vehicle.location.toLowerCase().includes(query) ||
         vehicle.transmission.toLowerCase().includes(query) ||
         vehicle.fuel_type.toLowerCase().includes(query)
       )
@@ -93,7 +90,7 @@ const Vehicles = () => {
             onChange={(e) => setInput(e.target.value)} 
             value={input} 
             type='text' 
-            placeholder='Search by Location, Brand, Model, or Category' 
+            placeholder='Search Location, Brand, Model, or Category' 
             className='w-full h-full outline-none text-gray-500' 
           />
         </motion.div>
