@@ -51,16 +51,6 @@ const Navbar = () => {
             {link.name}
           </Link>
         ))}
-
-        <div className="hidden lg:flex items-center text-sm gap-2 border border-borderColor px-3 rounded-full max-w-sm">
-          <input
-            type="text"
-            className="py-1.5 w-full bg-transparent outline-none placeholder-gray-500"
-            placeholder="Search Vehicles"
-          />
-          <img src={assets.search_icon} alt="search" />
-        </div>
-
         <div className="flex max-sm:flex-col items-start sm:items-center gap-6">
           <button onClick={() => isOwner ? navigate("/owner") : changeRole()} className="cursor-pointer">
             {isOwner ? "Dashboard" : "List Vehicles"}

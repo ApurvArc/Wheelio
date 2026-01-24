@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@geoapify/geocoder-autocomplete": "^3.0.1",
+    "@geoapify/react-geocoder-autocomplete": "^3.0.0",
     "@tailwindcss/vite": "^4.1.12",
     "axios": "^1.11.0",
     "motion": "^12.23.12",
