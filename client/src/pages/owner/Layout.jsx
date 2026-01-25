@@ -15,15 +15,13 @@ const Layout = () => {
   }, [isOwner])
 
   return (
-    // SYNC: Added min-h-screen and dark:bg-slate-900 to ensure the entire layout 
-    // maintains the dark theme background.
     <div className='flex flex-col min-h-screen bg-white dark:bg-slate-900 transition-colors duration-300'>
       <NavbarOwner />
-      <div className='flex flex-1'>
+      <div className='flex flex-1 overflow-hidden'> 
         <Sidebar />
-        {/* SYNC: The content area (Outlet) will now inherit the dark background 
-            from the parent container. */}
-        <div className='flex-1 flex flex-col'>
+        {/* LAYOUT FIX: Added 'overflow-y-auto overflow-x-hidden' to ensure 
+            scrolling happens INSIDE this area, not on the whole page */}
+        <div className='flex-1 flex flex-col overflow-y-auto overflow-x-hidden'>
           <Outlet />
         </div>
       </div>

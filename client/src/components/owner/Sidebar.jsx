@@ -28,9 +28,9 @@ const Sidebar = () => {
   }
 
   return (
-    // SYNC: Added dark:bg-slate-900 and dark:border-gray-700
-    <div className='relative min-h-screen md:flex flex-col items-center pt-8
-    max-w-13 md:max-w-60 w-full border-r border-borderColor dark:border-gray-700 bg-white dark:bg-slate-900 text-sm transition-all'>
+    // WIDTH FIX: Changed 'max-w-13' (invalid) to 'w-16' (valid). Added 'shrink-0'.
+    <div className='relative min-h-screen flex flex-col items-center pt-8
+    w-16 md:w-60 shrink-0 border-r border-borderColor dark:border-gray-700 bg-white dark:bg-slate-900 text-sm transition-all'>
       
       <div className='group relative'>
         <label htmlFor="image">
@@ -69,7 +69,6 @@ const Sidebar = () => {
         </button>
       )}
 
-      {/* SYNC: Added dark:text-white */}
       <p className='mt-2 text-base max-md:hidden dark:text-white'>{user?.name}</p>
 
       <div className='w-full'>
@@ -77,7 +76,6 @@ const Sidebar = () => {
           <NavLink 
             key={index} 
             to={link.path} 
-            // SYNC: Updated non-active text to dark:text-gray-400
             className={`relative flex items-center gap-2 w-full py-3 pl-4 first:mt-6 transition-colors ${
               link.path === location.pathname 
                 ? 'bg-primary/10 text-primary' 
@@ -87,7 +85,6 @@ const Sidebar = () => {
             <img 
               src={link.path === location.pathname ? link.coloredIcon : link.icon}
               alt={link.name} 
-              // Removed any potential invert logic for the icons to maintain original design
             />
             <span className='max-md:hidden'>{link.name}</span>
             {link.path === location.pathname && (

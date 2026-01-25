@@ -13,7 +13,7 @@ const NavbarOwner = () => {
     <div className="flex items-center justify-between px-6 md:px-10 py-4 border-b border-borderColor dark:border-gray-700 sticky top-0 z-[100] transition-all duration-300 bg-white dark:bg-slate-900 text-gray-700 dark:text-gray-100">
       <Link to="/">
         {/* SYNC: Logo brightness for dark mode visibility */}
-        <img src={assets.logo} alt="logo" className="h-7 dark:brightness-200" />
+        <img src={assets.logo} alt="logo" className="h-7" />
       </Link>
       
       <div className="flex items-center gap-4 sm:gap-6">
