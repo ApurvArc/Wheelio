@@ -21,6 +21,26 @@ export const AppProvider = ({children})=>{
     const [vehicles, setVehicles] = useState([])
     const [cityList, setCityList] = useState([])
 
+    // --- Theme State Management ---
+    // Initialize theme from localStorage to persist user preference on refresh
+    const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+
+    const toggleTheme = () => {
+        const newTheme = theme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+    };
+
+    useEffect(() => {
+        if (theme === 'dark') {
+            // Adds 'dark' class to <html> for Tailwind's dark: variant
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    }, [theme]);
+    // -----------------------------------
+
     // Function to check if user is logged in
     const fetchUser = async () => {
         try {
@@ -35,7 +55,6 @@ export const AppProvider = ({children})=>{
             toast.error(error.message)
         }
     }
-    // Function to fetch all vehicle form the server
 
     const fetchVehicles = async () => {
         try {
@@ -81,7 +100,8 @@ export const AppProvider = ({children})=>{
         navigate, currency, axios, user, setUser, 
         token, setToken, isOwner, setIsOwner, fetchUser, showLogin, setShowLogin,
         logout, vehicles, setVehicles, pickupDate, setPickupDate, returnDate, setReturnDate, fetchVehicles,
-        cityList
+        cityList,
+        theme, toggleTheme // Exporting theme props to be used by the Toggle Button
     }
 
     return (

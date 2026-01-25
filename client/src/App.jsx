@@ -20,7 +20,12 @@ const App = () => {
   const isOwnerPath = useLocation().pathname.startsWith("/owner");
 
   return (
-    <div>
+    /* SYNC: 
+      1. Removed redundant dark:bg-slate-800.
+      2. Used dark:bg-slate-900 as the primary Night Mode background.
+      3. min-h-screen ensures the background covers the full page even if content is short.
+    */
+    <div className="min-h-screen bg-white dark:bg-slate-900 text-gray-700 dark:text-gray-100 transition-colors duration-300">
       <Toaster/>
       {showLogin && <Login/>}
       {!isOwnerPath && <Navbar/>}

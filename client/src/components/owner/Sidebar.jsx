@@ -28,8 +28,9 @@ const Sidebar = () => {
   }
 
   return (
+    // SYNC: Added dark:bg-slate-900 and dark:border-gray-700
     <div className='relative min-h-screen md:flex flex-col items-center pt-8
-    max-w-13 md:max-w-60 w-full border-r border-borderColor text-sm'>
+    max-w-13 md:max-w-60 w-full border-r border-borderColor dark:border-gray-700 bg-white dark:bg-slate-900 text-sm transition-all'>
       
       <div className='group relative'>
         <label htmlFor="image">
@@ -40,7 +41,7 @@ const Sidebar = () => {
                 : user?.image || "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=300"
             } 
             alt="profile" 
-            className="h-9 md:h-14 w-9 md:w-14 rounded-full mx-auto"
+            className="h-9 md:h-14 w-9 md:w-14 rounded-full mx-auto object-cover"
           />
           <input 
             type="file" 
@@ -68,20 +69,25 @@ const Sidebar = () => {
         </button>
       )}
 
-      <p className='mt-2 text-base max-md:hidden'>{user?.name}</p>
+      {/* SYNC: Added dark:text-white */}
+      <p className='mt-2 text-base max-md:hidden dark:text-white'>{user?.name}</p>
 
       <div className='w-full'>
         {ownerMenuLinks.map((link,index) => (
           <NavLink 
             key={index} 
             to={link.path} 
-            className={`relative flex items-center gap-2 w-full py-3 pl-4 first:mt-6 ${
-              link.path === location.pathname ? 'bg-primary/10 text-primary' : 'text-gray-600'
+            // SYNC: Updated non-active text to dark:text-gray-400
+            className={`relative flex items-center gap-2 w-full py-3 pl-4 first:mt-6 transition-colors ${
+              link.path === location.pathname 
+                ? 'bg-primary/10 text-primary' 
+                : 'text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary'
             }`}
           >
             <img 
               src={link.path === location.pathname ? link.coloredIcon : link.icon}
               alt={link.name} 
+              // Removed any potential invert logic for the icons to maintain original design
             />
             <span className='max-md:hidden'>{link.name}</span>
             {link.path === location.pathname && (

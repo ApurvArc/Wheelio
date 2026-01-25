@@ -7,7 +7,8 @@ import NewsLetters from '../components/NewsLetters'
 
 const Home = () => {
   return (
-    <div>
+    // SYNC: Added a wrapper div with dark mode background and text colors.
+    <div className='bg-white dark:bg-slate-900 text-gray-800 dark:text-gray-100 transition-colors duration-300'>
       <Hero />
       <FeaturedSection/>
       <Banner />

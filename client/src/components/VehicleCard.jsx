@@ -12,7 +12,8 @@ const VehicleCard = ({ vehicle }) => {
         navigate(`/vehicle-details/${vehicle._id}`)
         window.scrollTo(0, 0)
       }}
-      className='group rounded-xl overflow-hidden shadow-lg hover:-translate-y-1 transition-all duration-500 cursor-pointer'
+      // SYNC: Cleaned up redundant dark:bg classes and maintained dark:bg-slate-800
+      className='group rounded-xl overflow-hidden shadow-lg hover:-translate-y-1 transition-all duration-500 cursor-pointer bg-white dark:bg-slate-800'
     >
       <div className='relative h-48 overflow-hidden'> 
         <img 
@@ -38,25 +39,29 @@ const VehicleCard = ({ vehicle }) => {
       <div className='p-4 sm:p-5'>
         <div className='flex justify-between items-start mb-2'>
           <div>
-            <h3 className='text-lg font-medium'>{vehicle.brand} {vehicle.model}</h3>
-            <p className='text-muted-foreground text-sm'>{vehicle.category} • {vehicle.year}</p>
+            {/* SYNC: Added dark:text-white for title visibility */}
+            <h3 className='text-lg font-medium text-gray-800 dark:text-white'>{vehicle.brand} {vehicle.model}</h3>
+            {/* SYNC: Added dark:text-gray-400 for category subtitle */}
+            <p className='text-muted-foreground text-sm text-gray-500 dark:text-gray-400'>{vehicle.category} • {vehicle.year}</p>
           </div>
         </div>
 
-        <div className='mt-4 grid grid-cols-2 text-gray-600'>
-          <div className='flex items-center text-sm text-muted-foreground'>
+        {/* SYNC: Maintained dark:text-gray-300 for feature list */}
+        <div className='mt-4 grid grid-cols-2 text-gray-600 dark:text-gray-300'>
+          <div className='flex items-center text-sm dark:text-gray-400'>
+            {/* SYNC: Removed dark:invert to maintain original icon colors */}
             <img src={assets.users_icon} alt="Seats" className='h-4 mr-2' />
             <span>{vehicle.seating_capacity} Seats</span>
           </div>
-          <div className='flex items-center text-sm text-muted-foreground'>
+          <div className='flex items-center text-sm dark:text-gray-400'>
             <img src={assets.fuel_icon} alt="Fuel" className='h-4 mr-2' />
             <span>{vehicle.fuel_type}</span>
           </div>
-          <div className='flex items-center text-sm text-muted-foreground'>
+          <div className='flex items-center text-sm dark:text-gray-400'>
             <img src={assets.car_icon} alt="Transmission" className='h-4 mr-2' />
             <span>{vehicle.transmission}</span>
           </div>
-          <div className='flex items-center text-sm text-muted-foreground'>
+          <div className='flex items-center text-sm dark:text-gray-400'>
             <img src={assets.location_icon} alt="Location" className='h-4 mr-2' />
             <span>{vehicle.location}</span>
           </div>

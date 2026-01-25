@@ -224,7 +224,7 @@ const AddVehicle = () => {
         {/* 4. Corrected Location Search with GeoapifyContext */}
         <div className="flex flex-col w-full">
           <label className="mb-1">Location</label>
-          <div className="border border-borderColor rounded-md bg-white">
+          <div className="border border-borderColor rounded-md bg-white dark:bg-slate-800">
             <GeoapifyContext apiKey={import.meta.env.VITE_GEO_API_KEY}>
               <GeoapifyGeocoderAutocomplete
                 placeholder="Search city (e.g. Mumbai, New York)..."

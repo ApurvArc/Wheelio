@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-
 @import "tailwindcss";
 
-*{
+/* Force Tailwind to use the .dark class for the dark: variant */
+@custom-variant dark (&:where(.dark, .dark *));
+
+* {
   font-family: "Outfit", sans-serif;
+}
+
+body {
+  @apply transition-colors duration-300 ease-in-out bg-white text-gray-800;
 }
 
 @theme {
@@ -11,4 +17,14 @@
   --color-primary-dill: #1F58D8;
   --color-light: #F1F5F9;
   --color-borderColor: #c4c7d2;
+}
+
+/* Sync CSS variables with the .dark class */
+:root:has(.dark) {
+  --color-light: #1e293b; 
+  --color-borderColor: #374151;
+}
+
+.dark body {
+    @apply bg-slate-900 text-slate-50;
 }

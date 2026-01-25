@@ -17,8 +17,9 @@ const FeaturedSection = () => {
     initial={{opacity: 0, y: 40}}
     whileInView={{opacity: 1, y: 0}}
     transition={{duration: 1, ease: 'easeOut'}}
+    // SYNC: Added dark:bg-slate-900 to ensure background consistency
     className='flex flex-col items-center py-24 px-6 md:px-16
-    lg:px-24 xl:px-32'>
+    lg:px-24 xl:px-32 dark:bg-slate-900'>
 
         <motion.div 
         initial={{opacity: 0, y: 20}}
@@ -57,10 +58,14 @@ const FeaturedSection = () => {
           onClick={()=>{
             navigate('/vehicles'); scrollTo(0,0) 
           }} 
+          // SYNC: Added dark mode border, hover state, and text color. 
+          // Removed dark:invert from the img tag to maintain original icon colors.
           className='flex items-center justify-center gap-2 px-6 py-2 border
-          border-borderColor hover:bg-gray-50 rounded-md mt-18 cursor-pointer'
+          border-borderColor hover:bg-gray-50 rounded-md mt-18 cursor-pointer
+          dark:border-gray-700 dark:hover:bg-slate-800 dark:text-white transition-all'
         >
-            Explore all Vehicles <img src={assets.arrow_icon} alt="arrow" />
+            Explore all Vehicles 
+            <img src={assets.arrow_icon} alt="arrow" />
         </motion.button>
     </motion.div>
   )
