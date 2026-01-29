@@ -1,12 +1,12 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from 'axios'
-import {toast} from 'react-hot-toast'
+import { toast } from 'react-hot-toast'
 import { useNavigate } from "react-router-dom";
 
 axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
 export const AppContext = createContext()
 
-export const AppProvider = ({children})=>{
+export const AppProvider = ({ children }) => {
 
     const navigate = useNavigate()
     const currency = import.meta.env.VITE_CURRENCY
@@ -44,21 +44,28 @@ export const AppProvider = ({children})=>{
     // Function to check if user is logged in
     const fetchUser = async () => {
         try {
-            const {data} = await axios.get('/api/user/data')
+            const { data } = await axios.get('/api/user/data')
             if (data.success) {
                 setUser(data.user)
                 setIsOwner(data.user.role === 'owner')
-            }else{
-                navigate('/login')
+            } else {
+                toast.error('Session expired, please login again')
+                setToken(null)
+                setUser(null)
+                localStorage.removeItem('token')
             }
         } catch (error) {
+            console.log(error)
             toast.error(error.message)
+            setToken(null)
+            setUser(null)
+            localStorage.removeItem('token')
         }
     }
 
     const fetchVehicles = async () => {
         try {
-            const {data} = await axios.get('/api/user/vehicles')
+            const { data } = await axios.get('/api/user/vehicles')
             if (data.success) {
                 setVehicles(data.vehicles);
                 const locations = [...new Set(data.vehicles.map(vehicle => vehicle.location))].sort();
@@ -82,22 +89,22 @@ export const AppProvider = ({children})=>{
     }
 
     // useEffect to retrieve the token from localStorage
-    useEffect(()=>{
+    useEffect(() => {
         const token = localStorage.getItem('token')
         setToken(token)
         fetchVehicles()
     }, [])
 
     // useEffect to fetch user data when token is available
-    useEffect(()=>{
-        if(token){
+    useEffect(() => {
+        if (token) {
             axios.defaults.headers.common['Authorization'] = `${token}`
             fetchUser()
         }
     }, [token])
 
     const value = {
-        navigate, currency, axios, user, setUser, 
+        navigate, currency, axios, user, setUser,
         token, setToken, isOwner, setIsOwner, fetchUser, showLogin, setShowLogin,
         logout, vehicles, setVehicles, pickupDate, setPickupDate, returnDate, setReturnDate, fetchVehicles,
         cityList,
@@ -111,6 +118,6 @@ export const AppProvider = ({children})=>{
     )
 }
 
-export const useAppContext = ()=>{
+export const useAppContext = () => {
     return useContext(AppContext)
 }
