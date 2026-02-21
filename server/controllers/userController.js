@@ -3,11 +3,11 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import Vehicle from "../models/Vehicle.js";
 
-//Generate JWT Token
+// Generate JWT Token
 const generateToken = (userId) => {
     const payload = userId;
     return jwt.sign(payload, process.env.JWT_SECRET);
-}
+};
 
 // Register User
 export const registerUser = async (req, res) => {
@@ -32,7 +32,7 @@ export const registerUser = async (req, res) => {
         console.log(error.message);
         res.json({ success: false, message: error.message });
     }
-}
+};
 
 // Login User
 export const loginUser = async (req, res) => {
@@ -60,9 +60,9 @@ export const loginUser = async (req, res) => {
         console.log(error.message);
         res.json({ success: false, message: error.message });
     }
-}
+};
 
-//Get User data using JWT Token
+// Get User data using JWT Token
 export const getUserData = async (req, res) => {
     try {
         const { user } = req;
@@ -71,18 +71,18 @@ export const getUserData = async (req, res) => {
         console.log(error.message);
         res.json({ success: false, message: error.message });
     }
-}
+};
 
 // Get All Vehicles for the frontend
 export const getVehicles = async (req, res) => {
     try {
-        const vehicles = await Vehicle.find({ isAvailable: true })
+        const vehicles = await Vehicle.find({ isAvailable: true });
         res.json({ success: true, vehicles });
     } catch (error) {
         console.log(error.message);
         res.json({ success: false, message: error.message });
     }
-}
+};
 
 // Google OAuth Login (Authorization Code Flow)
 export const googleLogin = async (req, res) => {
@@ -97,30 +97,30 @@ export const googleLogin = async (req, res) => {
         const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
 
         // Exchange code for tokens
-        const tokenResponse = await fetch('https://oauth2.googleapis.com/token', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+        const tokenResponse = await fetch("https://oauth2.googleapis.com/token", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 code,
                 client_id: clientId,
                 client_secret: clientSecret,
-                redirect_uri: 'postmessage', // Required for GSI popup flow
-                grant_type: 'authorization_code',
+                redirect_uri: "postmessage",
+                grant_type: "authorization_code",
             }),
         });
 
         const tokenData = await tokenResponse.json();
 
         if (!tokenResponse.ok) {
-            console.error('Token exchange error:', tokenData);
+            console.error("Token exchange error:", tokenData);
             return res.json({ success: false, message: "Failed to exchange token" });
         }
 
         const { id_token, access_token } = tokenData;
 
         // Verify/Get User Info from ID Token or UserInfo Endpoint
-        const userResponse = await fetch(`https://www.googleapis.com/oauth2/v3/userinfo`, {
-            headers: { Authorization: `Bearer ${access_token}` }
+        const userResponse = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
+            headers: { Authorization: `Bearer ${access_token}` },
         });
         const payload = await userResponse.json();
 
@@ -157,7 +157,7 @@ export const googleLogin = async (req, res) => {
         console.log("Google Login Error:", error.message);
         res.json({ success: false, message: error.message });
     }
-}
+};
 
 // Update user name
 export const updateUserName = async (req, res) => {
@@ -176,4 +176,4 @@ export const updateUserName = async (req, res) => {
         console.log(error.message);
         res.json({ success: false, message: error.message });
     }
-}
+};

@@ -14,15 +14,15 @@ await connectDB();
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => res.send("Server is running"));
+app.get("/", (req, res) => res.send("Server is running"));
 
-app.use('/api/user', userRouter);
-app.use('/api/owner', ownerRouter);
-app.use('/api/bookings', bookingRouter);
-app.use('/api/newsletter', newsletterRoutes);
+app.use("/api/user", userRouter);
+app.use("/api/owner", ownerRouter);
+app.use("/api/bookings", bookingRouter);
+app.use("/api/newsletter", newsletterRoutes);
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => 
+app.listen(PORT, () =>
   console.log(`Server is running on port ${PORT}`)
 );

@@ -4,11 +4,11 @@ import { protect } from "../middleware/auth.js";
 
 const userRouter = express.Router();
 
-userRouter.post('/register', registerUser)
-userRouter.post('/login', loginUser)
-userRouter.post('/google', googleLogin)
-userRouter.put('/update-name', protect, updateUserName)
-userRouter.get('/data', protect, getUserData)
-userRouter.get('/vehicles', getVehicles)
+userRouter.post("/register", registerUser);
+userRouter.post("/login", loginUser);
+userRouter.post("/google", googleLogin);
+userRouter.put("/update-name", protect, updateUserName);
+userRouter.get("/data", protect, getUserData);
+userRouter.get("/vehicles", getVehicles);
 
 export default userRouter;
