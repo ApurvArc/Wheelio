@@ -1,10 +1,10 @@
-# Wheelio - Car Rental Application 🚗
+# Wheelio - Car Rental Application
 
 Wheelio is a modern, full-stack car rental platform built with the **MERN** stack. It offers a seamless experience for users to browse, book, and manage vehicle rentals, while providing car owners/admins with a dashboard to manage users, bookings, and vehicle inventory.
 
-## ✨ Key Features
+## Key Features
 
-### 👤 User Features
+### User Features
 - **Authentication**: 
   - standard Email/Password Login & Signup.
   - **Google OAuth**: Secure "Sign in with Google" using Authorization Code Flow.
@@ -15,14 +15,14 @@ Wheelio is a modern, full-stack car rental platform built with the **MERN** stac
 - **Responsive Design**: Fully responsive UI built with Tailwind CSS.
 - **Dark Mode**: Built-in toggle for Light/Dark themes.
 
-### 🛡️ Admin/Owner Features
+### Admin/Owner Features
 - **Dashboard**: Overview of business stats.
 - **Inventory Management**: Add, edit, and manage vehicles (with image uploads via ImageKit).
 - **Booking Management**: View and update booking statuses.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Client (Frontend)
 - **Framework**: React.js (Vite)
@@ -42,7 +42,7 @@ Wheelio is a modern, full-stack car rental platform built with the **MERN** stac
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js (v18+)
@@ -111,7 +111,7 @@ Wheelio is a modern, full-stack car rental platform built with the **MERN** stac
    npm run dev
    ```
 
-### 🔐 Google OAuth Configuration
+### Google OAuth Configuration
 To enable "Sign in with Google":
 1. Go to **Google Cloud Console** > **APIs & Services** > **Credentials**.
 2. Create an **OAuth 2.0 Client ID**.
@@ -121,7 +121,7 @@ To enable "Sign in with Google":
 
 ---
 
-## 📜 Scripts
+## Scripts
 
 | Command | Description |
 |---------|-------------|
@@ -131,5 +131,5 @@ To enable "Sign in with Google":
 
 ---
 
-## 🤝 Contributing
+## Contributing
 Contributions are welcome! Please open an issue or submit a pull request.
